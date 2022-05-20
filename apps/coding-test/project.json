@@ -9,7 +9,7 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/coding-test",
+        "outputPath": "docs",
         "index": "apps/coding-test/src/index.html",
         "main": "apps/coding-test/src/main.ts",
         "polyfills": "apps/coding-test/src/polyfills.ts",
