@@ -1,1 +1,8 @@
-<p>{{item}}</p>
+<section>
+    <div class="example-label">{{item}}</div>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" (click)="addItem(item)">+</button>
+        <button mat-raised-button color="primary" (click)="removeItem(item)">-</button>
+        <button mat-raised-button disabled>{{quantity | async}}</button>
+    </div>
+</section>

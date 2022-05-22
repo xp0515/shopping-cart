@@ -1,22 +1,22 @@
 import { Action } from "@ngrx/store";
 
 import { AddItem, CartActionType, RemoveItem } from "./cart.actions";
-import { Cart } from "../model";
+import { CartState } from "./cart.selectors";
 
 type CartAction = AddItem | RemoveItem
 
-const initialState: Cart = {
+const initialState: CartState = {
     count: 0,
     items: []
 }
 
-const addItem = (state: Cart, item: string): Cart => ({
+const addItem = (state: CartState, item: string): CartState => ({
     ...state,
     count: state.count + 1,
     items: [...state.items, item]
 });
 
-const removeItem = (state: Cart, item: string): Cart => {
+const removeItem = (state: CartState, item: string): CartState => {
     if (state.count > 0 && state.items.indexOf(item) !== -1)
         return {
             ...state,
@@ -26,13 +26,13 @@ const removeItem = (state: Cart, item: string): Cart => {
     return state
 };
 
-export function cartReducer(state: Cart = initialState, action: Action) {
-    const cartAaction = action as CartAction
+export function cartReducer(state: CartState = initialState, action: Action) {
+    const cartAction = action as CartAction
     switch (action.type) {
         case CartActionType.AddItem:
-            return addItem(state, cartAaction.payload.item);
+            return addItem(state, cartAction.payload.item);
         case CartActionType.RemoveItem:
-            return removeItem(state, cartAaction.payload.item);
+            return removeItem(state, cartAction.payload.item);
         case CartActionType.Reset:
             return initialState;
         default:

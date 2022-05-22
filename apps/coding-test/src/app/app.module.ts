@@ -7,17 +7,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { ItemComponent } from './cart/item/item.component';
 import { ItemListComponent } from './cart/item-list/item-list.component';
+import { ToolbarComponent } from './cart/toolbar/toolbar.component';
 import { cartReducer } from './cart/+state/cart.reducer';
 
 @NgModule({
-  declarations: [AppComponent, ItemComponent, ItemListComponent],
+  declarations: [AppComponent, ItemComponent, ItemListComponent, ToolbarComponent],
   imports: [BrowserModule,
     StoreModule.forRoot({ cart: cartReducer }),
     StoreDevtoolsModule.instrument({
@@ -27,9 +26,7 @@ import { cartReducer } from './cart/+state/cart.reducer';
     BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
-    MatGridListModule,
-    MatDividerModule,
-    MatSidenavModule
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,25 +1,5 @@
-<mat-drawer-container class="example-container" *ngIf="cart | async as cart">
-    <mat-drawer mode="side" opened>
-        <h2>Cart {{cart.count}} items</h2>
-        <button mat-raised-button color="primary" (click)="reset()">Reset</button>
-        <div *ngFor="let item of cart.items">
-            <p>{{item}}</p>
-        </div>
-    </mat-drawer>
-    <mat-drawer-content>
-        <div class="container">
-            <mat-grid-list cols="2" rowHeight="50px">
-                <div *ngFor="let item of items">
-                    <mat-grid-tile>
-                        <app-item [item]="item"></app-item>
-                    </mat-grid-tile>
-                    <mat-grid-tile>
-                        <button mat-raised-button color="primary" (click)="addItem(item)">+</button>
-                        <div class="spacer"></div>
-                        <button mat-raised-button color="primary" (click)="removeItem(item)">-</button>
-                    </mat-grid-tile>
-                </div>
-            </mat-grid-list>
-        </div>
-    </mat-drawer-content>
-</mat-drawer-container>
+<div class="container">
+    <mat-list *ngFor="let item of items">
+        <app-item [item]="item"></app-item>
+    </mat-list>
+</div>
